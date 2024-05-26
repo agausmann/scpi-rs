@@ -11,10 +11,10 @@ mod vecformatter;
 use lexical_core::FormattedSize;
 use lexical_core::NumberFormatBuilder;
 
-const RESPONSE_DATA_SEPARATOR: u8 = b',';
-const RESPONSE_HEADER_SEPARATOR: u8 = b' ';
-const RESPONSE_MESSAGE_UNIT_SEPARATOR: u8 = b';';
-const RESPONSE_MESSAGE_TERMINATOR: u8 = b'\n';
+pub const RESPONSE_DATA_SEPARATOR: u8 = b',';
+pub const RESPONSE_HEADER_SEPARATOR: u8 = b' ';
+pub const RESPONSE_MESSAGE_UNIT_SEPARATOR: u8 = b';';
+pub const RESPONSE_MESSAGE_TERMINATOR: u8 = b'\n';
 
 /// A type which can be formatted for a SCPI response
 pub trait ResponseData {
@@ -279,10 +279,10 @@ pub trait Formatter {
 
 /// A response unit returned by a query
 pub struct ResponseUnit<'a> {
-    fmt: &'a mut dyn Formatter,
-    result: Result<()>,
-    has_header: bool,
-    has_data: bool,
+    pub fmt: &'a mut dyn Formatter,
+    pub result: Result<()>,
+    pub has_header: bool,
+    pub has_data: bool,
 }
 
 impl<'a> ResponseUnit<'a> {
