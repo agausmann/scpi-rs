@@ -1,3 +1,5 @@
+#![cfg_attr(not(feature = "std"), no_std)]
+
 //! This crate aims to implement higher level abstraction for the SCPI protocol. See [scpi] crate for the basic command parser.  
 //!
 //! It does not require the std library (i.e. it's `no_std` compatible) or a system allocator (useful for embedded).
@@ -18,8 +20,6 @@
 //! # References
 //! 1. [IEEE488.2](https://standards.ieee.org/ieee/488.2/718/)
 //! 2. [SCPI-99](https://www.ivifoundation.org/docs/scpi-99.pdf)
-
-#[cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(all(feature = "alloc", not(feature = "std")))]
 extern crate alloc;
